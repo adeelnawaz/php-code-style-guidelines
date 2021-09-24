@@ -1,7 +1,7 @@
 Php Code Style Guidelines
 =========================
 
-##Abstract
+## Abstract
 
 The first condition for a code to be smart is to look smart. A code written in a well indented, properly styled way is easy on the eye, therefore, more understandable compared to a code which makes you dizzy by looking at it.
 
@@ -9,11 +9,11 @@ In an organization where multiple developers work on a single project’s code b
 
 This document describes the PHP language standards proposed to be followed by all the PHP developers of this organization. These standards are a combination of **PHP Pear coding standards** and **Zend framework coding standards**, both recommended as best options to adapt in order to write a well formatted PHP code.
 
-##Indenting and Line Length
+## Indenting and Line Length
 
 Use an indent of 4 spaces, with no tabs. This helps to avoid problems with conflicts, diffs, patches, GIT  / SVN history and annotations. For your editor you should set the indent (via tab key) to 4 spaces.
 
-##PHP Code Demarcation
+## PHP Code Demarcation
 
 PHP code must always be delimited by the full-form, standard PHP tags:
 
@@ -25,9 +25,9 @@ PHP code must always be delimited by the full-form, standard PHP tags:
 
 Short tags are never allowed. For files containing only PHP code, the closing tag must always be omitted.
 
-##Strings
+## Strings
 
-###String Literals
+### String Literals
 
 When a string is literal (contains no variable substitutions), the apostrophe or "single quote" should be used to demarcate the string:
 
@@ -35,7 +35,7 @@ When a string is literal (contains no variable substitutions), the apostrophe or
 $a = 'Example String';
 ```
 
-###String Literals Containing Apostrophes
+### String Literals Containing Apostrophes
 
 When a literal string itself contains apostrophes, it is permitted to demarcate the string with quotation marks or "double quotes": 
 
@@ -46,7 +46,7 @@ $sql = "SELECT `id`, `name` from `people` "
 
 This syntax is preferred over escaping apostrophes as it is much easier to read. 
 
-###Variable Substitution
+### Variable Substitution
 
 Variable substitution is permitted using either of these forms: 
 
@@ -62,7 +62,7 @@ For consistency, this form is not permitted:
 $greeting = "Hello ${name}, welcome back!";
 ```
 
-###String Concatenation
+### String Concatenation
 
 Strings must be concatenated using the "." operator. A space must always be added before and after the "." operator to improve readability:
 
@@ -78,9 +78,9 @@ $sql = "SELECT `id`, `name` FROM `people` "
      . "ORDER BY `name` ASC ";
 ```
 
-##Arrays
+## Arrays
 
-###Numerically Indexed Arrays
+### Numerically Indexed Arrays
 
 When declaring indexed arrays with the Array function, a trailing space must be added after each comma delimiter to improve readability:
 
@@ -108,7 +108,7 @@ $sampleArray = array(
 
 When using this latter declaration, it is encouraged to use a trailing comma for the last item in the array; this minimizes the impact of adding new items on successive lines, and helps to ensure no parse errors occur due to a missing comma.
 
-###Associative Arrays
+### Associative Arrays
 
 When declaring associative arrays with the Array construct, breaking the statement into multiple lines is encouraged. In this case, each successive line must be padded with white space such that the keys are aligned. For readability, various assignment operators may (optionally) be aligned with each other:
 
@@ -136,7 +136,7 @@ $sampleArray = array(
 
 When using this latter declaration, it is encouraged to use a trailing comma for the last item in the array.
 
-##Control Structures
+## Control Structures
 
 These include `if`, `for`, `while`, `switch`, etc. Control statements should have one space between the control keyword and opening parenthesis (to distinguish them from function calls) and a single space after the closing parenthesis before the opening brace. The opening brace is written on the same line as the conditional statement. The closing brace is always written on its own line. Any content within the braces must be indented using four spaces.
 
@@ -154,7 +154,7 @@ Within the conditional statements between the parentheses, operators must be sep
 while ($a != 2 && ($a % 2 == 0 || $a % 5 == 0) && $a > 0) {
 ```
 
-###Split Long Conditional Statements
+### Split Long Conditional Statements
 
 Long conditional statement with several clauses may be broken down to multiple lines. In such a case, break the line prior to a logic operator, and pad the line to align under the first character of the conditional clause. The closing parenthesis and the opening brace will then be placed on a line at an indentation level equivalent to the opening control statement.
 
@@ -182,7 +182,7 @@ if ($is_foo && $is_bar) {
 ?>
 ```
 
-###If/Else/Elseif 
+### If/Else/Elseif 
 
 For `if` statements that include `elseif` or `else`, the formatting conventions are similar to the `if` construct. The following examples demonstrate proper formatting for `if` statements with `else` and/or `elseif` constructs:
 
@@ -215,7 +215,7 @@ if (($a == $b)
 }
 ```
 
-###Switch
+### Switch
 
 All content within the `switch` statement must be indented using four spaces. Content under each `case` statement must be indented using an additional four spaces.
 
@@ -236,7 +236,7 @@ It is recommended not to omit the construct `default` from a switch statement.
 
 **Note:** It is sometimes useful to write a `case` statement which falls through to the next `case` by not including a `break` or `return` within that `case`. To distinguish these cases from bugs, any `case` statement where `break` or `return` are omitted should contain a comment indicating that the `break` was intentionally omitted.
 
-###Ternary operators
+### Ternary operators
 
 The same rule as for `if` clauses also applies for the ternary operator: It may be split onto several lines, keeping the question mark and the colon at the front.
 
@@ -252,9 +252,9 @@ $b = $condition3 && $condition4
 ?>
 ```
 
-##Classes
+## Classes
 
-###Class Declaration
+### Class Declaration
 
 The brace should always be written on the line underneath the class name. All code in a class must be indented with four spaces.
 
@@ -301,13 +301,13 @@ class SampleClass
 }
 ```
 
-###Class Member Variables
+### Class Member Variables
 
 Any variables declared in a class must be listed at the top of the class, above the declaration of any methods.
 
 The `var` construct is discouraged. Member variables always declare their visibility by using one of the `private`, `protected`, or `public` modifiers. Giving access to member variables directly by declaring them as `public` is permitted but discouraged in favor of accessor methods (set & get).
 
-##Function Definitions
+## Function Definitions
 
 The brace should always be written on the line underneath the function name. Space between the function name and the opening parenthesis for the arguments is not permitted.
 
@@ -364,7 +364,7 @@ function bar()
 }
 ```
 
-###Class Method Declaration
+### Class Method Declaration
 
 Methods inside classes must always declare their visibility by using one of the `private`, `protected`, or `public` modifiers.
 
@@ -387,7 +387,7 @@ class Foo
 }
 ```
 
-###Split Function Definitions
+### Split Function Definitions
 
 Functions with many parameters may need to be split onto several. The first parameters may be put onto the same line as the function name if there is enough space. Subsequent parameters on following lines are to be indented 4 spaces. The closing parenthesis and the opening brace are to be put onto the next line, on the same indentation level as the `function` keyword.
 
@@ -403,7 +403,7 @@ function someFunctionWithAVeryLongName($first, $secondParam,
 ?>
 ```
 
-###Function and Method Usage
+### Function and Method Usage
 
 Function arguments should be separated by a single trailing space after the comma delimiter. The following is an example of an acceptable invocation of a function that takes three arguments:
 
@@ -427,7 +427,7 @@ threeArguments(array(
 ), 2, 3);
 ```
 
-##Function Calls
+## Function Calls
 
 Functions should be called with no spaces between the function name, the opening parenthesis, and the first parameter; spaces between each comma and next parameter, and no space between the last parameter, the closing parenthesis, and the semicolon. Here's an example:
 
@@ -468,7 +468,7 @@ $this->callSomeFunction('3',          'verrrrrrylong', true);
 ?> 
 ```
 
-###Split Function Call
+### Split Function Call
 
 When calling functions or methods with many parameters, it is allowed to split parameters in function calls onto several lines.
 
@@ -519,7 +519,7 @@ $someObject->someFunction("some", "parameter")
 ?>
 ```
 
-###Split long assignments onto several lines
+### Split long assignments onto several lines
 
 Assignments may be split onto several lines when the character/line limit is exceeded. The equal sign has to be positioned onto the following line, and indented by 4 characters.
 
@@ -531,7 +531,7 @@ $GLOBALS['TSFE']->additionalHeaderData[$this->strApplicationName]
 ?>
 ```
 
-##Comments
+## Comments
 
 Comments are strongly encouraged. A general rule of thumb is that if you look at a section of code and think "Wow, I don't want to try and describe that", you need to comment it before you forget how it works.
 
@@ -539,19 +539,19 @@ C style comments (/* */) and standard C++ comments (//) are both fine. Use of Pe
 
 It is encouraged to provide complete inline documentation comment blocks (docblocks). Please read the [Inline Documentation](#inline-documentation) sections to learn the specifics of writing docblocks.
 
-##Including Code
+## Including Code
 
 When unconditionally including a file, use `require_once`. When conditionally including a file, use `include_once`. Either of these will ensure that class files are included only once. They share the same file list, so you don't need to worry about mixing them - a file included with `require_once` will not be included again by `include_once`.
 
 `include_once` and `require_once` are statements, not functions. Parentheses should not surround the subject filename.
 
-##Example URLs
+## Example URLs
 
 Use `example.com`, `example.org` and `example.net` for all example URLs and email addresses, per RFC 2606.
 
-##Naming Conventions
+## Naming Conventions
 
-###Global Variables and Functions
+### Global Variables and Functions
 
 If your code needs to define global variables, their names should start with a single underscore followed by the file/class/function name and another underscore to avoid conflicts. For example, the `ExampleClass` class should define the global variable `example_global` as `$_ExampleClass_example_global`.
 
@@ -559,7 +559,7 @@ Global functions should be named using the "studly caps" style (also referred to
 
 `ExampleFile_exampleTestFunction()`
 
-###Classes
+### Classes
 
 Classes should be given descriptive names. Avoid using abbreviations where possible. Class names should always begin with an uppercase letter. The class hierarchy may also be reflected in the class name, each level of the hierarchy separated with a single underscore. Examples of good class names are:
 
@@ -569,7 +569,7 @@ ListHelper
 
 `My_Classes_HelperClasses_ListHelper` (in my/classes/helperclasses/ListHelper.php)
 
-###Class Variables and Methods
+### Class Variables and Methods
 
 Class variables (a.k.a properties) and methods should be named using the "studly caps" style (also referred to as "bumpy case" or "camel caps"). Some examples (these would be "public" members):
 
@@ -583,25 +583,25 @@ Protected class members are not preceded by a single underscore. For example:
 
 `protected $somevar`, `protected function initTree()`
 
-###Constants
+### Constants
 
 Constants should always be all-uppercase, with underscores to separate words. To avoid conflicts, prefix constants with global scope with the uppercased name of the file/package they are used in. Some examples:
 
 `DB_DATASOURCENAME`, `SERVICES_FACEBOOK_APPID`
 
-##File Formats
+## File Formats
 
 All files must use ISO-8859-1 or UTF-8 character encoding. It is important that the database connection, PHP files, template files, and included files all should have the same encoding. If not, then necessary encoding conversions must be applied.
 
-##`E_STRICT`-compatible code
+## `E_STRICT`-compatible code
 
 The code must be `E_STRICT`-compatible. This means that it must not produce any notices, warnings or errors when PHP's error reporting level is set to `E_ALL | E_STRICT`.
 
-##Best practices
+## Best practices
 
 There are things which are mostly subject of personal preference and not strictly defined as standards. There may be no reasons to use one way in preference to another. Such best practices are only recommended to keep consistency within code.
 
-###Readability of code blocks
+### Readability of code blocks
 
 Related lines of code should be grouped into blocks, separated from each other to keep readability as high as possible. The definition of "related" depends on the code.
 
@@ -646,7 +646,7 @@ return $myData;
 ?> 
 ```
 
-###Return early
+### Return early
 
 To keep readability in functions and methods, it is wise to return early if simple conditions apply that can be checked at the beginning of a method. For example:
 
@@ -700,7 +700,7 @@ function foo($bar, $baz)
 ?> 
 ```
 
-###Ternary Operator
+### Ternary Operator
 
 To keep readability and simplicity, it is preferred to use ternary operator instead of `if`/`else` for single line statements wherever possible. For example:
 
@@ -751,19 +751,19 @@ echo $b == 'a' ? 2 : ($c == 'a' ? 1 : 0);
 
 ```
 
-##Inline Documentation
+## Inline Documentation
 
 The following section describes the inline documentation according to documentation block (docblock) standards.
 
 These standards are not being strictly imposed but it is encouraged that you adapt these standards as much as possible. It is strongly recommended to write documentation blocks for at least functions and methods.
 
-###Documentation Format
+### Documentation Format
 
 Following are the basic standards compatible with the phpDocumentor format. Describing the phpDocumentor format is beyond the scope of this document. For more information, visit: [http://phpdoc.org/](http://phpdoc.org/).
 
 All class files should contain a "file-level" docblock at the top of each file and a "class-level" docblock immediately above each class. Examples of such docblocks can be found below.
 
-###Files
+### Files
 
 Every file that contains PHP code should have a docblock at the top of the file that contains these phpDocumentor tags:
 
@@ -786,7 +786,7 @@ Every file that contains PHP code should have a docblock at the top of the file 
 */
 ```
 
-###Classes
+### Classes
 
 Every class should  have a docblock that contains these phpDocumentor tags:
 
@@ -808,7 +808,7 @@ Every class should  have a docblock that contains these phpDocumentor tags:
 */
 ```
 
-###Functions
+### Functions
 
 Every function, including object methods, should have a docblock that contains at a minimum:
 
@@ -828,7 +828,7 @@ If a function or method may throw an exception, use `@throws` for all known exce
 
 **Note:** Although these standards are not compulsory to follow (as stated above), yet it is advised that you write a document block for functions and methods containing the minimum elements described in bullets above.
 
-####Example
+#### Example
 
 ```
 /**
